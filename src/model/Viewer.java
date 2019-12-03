@@ -13,8 +13,8 @@ class Viewer extends JPanel {
 
 	public void setImage(int result[][]) {
 		image = new BufferedImage(result.length, result[0].length, BufferedImage.TYPE_INT_RGB);
-		for (int x = 0; x < rotate.width; x++) {
-			for (int y = 0; y < rotate.height; y++) {
+		for (int x = 0; x < result.length; x++) {
+			for (int y = 0; y < result[0].length; y++) {
 				int a = result[x][y];
 				int r = (a>>16)&0xFF;
 				int g = (a>>8)&0xFF;
