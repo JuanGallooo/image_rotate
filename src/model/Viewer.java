@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 class Viewer extends JPanel {
 
-	BufferedImage image;
+	private BufferedImage image;
 
 	public void setImage(int result[][]) {
 		image = new BufferedImage(result.length, result[0].length, BufferedImage.TYPE_INT_RGB);
