@@ -184,7 +184,7 @@ public class rotate {
 					try {
 						resultante[xs + trasX][ys + trasY] = result[i][j];
 					
-					
+					if(g >= )
 						if(i == 0 && j== (result[0].length/2)+ex) {
 							
 								bound1 = xs + trasX;
