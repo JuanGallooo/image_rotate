@@ -112,7 +112,7 @@ public class rotate {
 			jf2.add(panel2);
 			jf2.setVisible(true);
 			
-			panel2.setImage(resultante2);
+			panel2.setImage(resultante3);
 			panel2.setSize(distan2 * 2, distan2 * 2);
 			jf2.validate();
 			jf2.repaint();
@@ -170,14 +170,28 @@ public class rotate {
 
 	private static void rotateM(int[][] result, float radian, int[][] resultante, int n) {
 		if (n == 0) {
+			int g = (int) (radian * (180/Math.PI));
+			int ex = 1;
+			if(g< 90 && g>45) {
+				ex = g -45;
+			}
 			for (int i = 0; i < result.length; i++) {
-				for (int j = 0; j < result[0].length; j++) {
+				for (int j = 0; j < (result[0].length/2); j++) {
 					float t = i - xp;
 					float v = j - yp;
 					int xs = Math.round((int) (xp + t * Math.cos(radian) - v * Math.sin(radian)));
 					int ys = Math.round((int) (yp + v * Math.cos(radian) + t * Math.sin(radian)));
 					try {
 						resultante[xs + trasX][ys + trasY] = result[i][j];
+					
+					
+						if(i == 0 && j== (result[0].length/2)+ex) {
+							
+								bound1 = xs + trasX;
+//							else if(g<=180 && g>90) bound1 = 1;
+							
+
+						}
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -186,15 +200,12 @@ public class rotate {
 		}
 		if (n == 1) {
 			for (int k = 0; k < result.length; k++) {
-				for (int l = 0; l < result[0].length; l++) {
+				for (int l = (result[0].length/2); l < result[0].length; l++) {
 					float t = k - xp2;
 					float v = l - yp2;
 					int xs = Math.round((int) (xp2 + t * Math.cos(radian) - v * Math.sin(radian)));
 					int ys = Math.round((int) (yp2 + v * Math.cos(radian) + t * Math.sin(radian)));
 					try {
-						if(k==0 && l== 0) {
-							bound1 = xs + trasX2;
-						}
 						resultante[xs + trasX2][ys + trasY2] = result[k][l];
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -211,8 +222,8 @@ public class rotate {
 			int[][] resul2 = data.get(1);
 			int w = resul1.length;
 			int h = resul1[0].length;
-			for (int i = bound1; i < w; i++) {
-				for (int j = 0; j < h; j++) {
+			for (int i = 0; i < w; i++) {
+				for (int j = bound1; j < h; j++) {
 					if(resul1[i][j] == 0) {
 						resul1[i][j] = resul2[i][j];
 					}
