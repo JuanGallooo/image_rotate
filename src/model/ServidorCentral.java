@@ -257,14 +257,24 @@ public class ServidorCentral {
 		rotadores.add(nuevo);
 		hiloEs.verify();
 	}
+	ArrayList<int[][]> respuesta = new ArrayList<int[][]>();
 	public void distribute(){
-		ArrayList<int[][]> respuesta = new ArrayList<int[][]>();
 		float radian = (float) (grados * Math.PI / 180);		
 		for (int i = 0; i < result.size(); i++) {
 			int[][] r = new int[distan * 2][distan * 2];
-			respuesta.add(rotadores.get(i).rotar(result.get(i), radian, r,i,avance, xp,yp,trasX,trasY));
+			Thread x = new Thread(new hiloEsperaResultado(this, rotadores.get(i), result.get(i), radian, r, i,avance, xp,yp,trasX,trasY));
+			x.run();		
+//			respuesta.add(rotadores.get(i).rotar(result.get(i), radian, r,i,avance, xp,yp,trasX,trasY));
 		}
-		merge(respuesta, numPC, grados);
+		while (!(respuesta.size()<numPC)) {
+			merge(respuesta, numPC, grados);
+			break;
+		}
 	}
+	public void agregar(int[][] resultado) {
+		respuesta.add(resultado);
+	}
+
+
 	
 }
