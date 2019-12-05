@@ -10,8 +10,8 @@ public class Rotador {
 		this.sc = sc;
 	}
 	
-	public void attach() {
-		sc.attach(this);
+	public void register() {
+		sc.register(this);
 	}
 	
 	public int[][] rotar(int[][] result, float radian, 

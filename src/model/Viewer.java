@@ -20,7 +20,7 @@ class Viewer extends JPanel {
 		ServidorCentral s = new ServidorCentral("galaxia", "tif", num, 152);
 		for (int i = 0; i < num; i++) {
 			Rotador r1 = new Rotador(s);
-			r1.attach();
+			r1.register();
 			Thread.sleep(1000);
 		}
 //		FileWriter fichero = null;

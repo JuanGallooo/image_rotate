@@ -256,7 +256,7 @@ public class ServidorCentral {
 		}
 	}
 	
-	public void attach(Rotador nuevo) {
+	public void register(Rotador nuevo) {
 		rotadores.add(nuevo);
 		hiloEs.verify();
 	}
