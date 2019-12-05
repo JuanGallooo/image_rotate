@@ -17,7 +17,7 @@ class Viewer extends JPanel {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		int num = 6;
-		ServidorCentral s = new ServidorCentral("prueba", "jpg", num, 152);
+		ServidorCentral s = new ServidorCentral("galaxia", "tif", num, 152);
 		for (int i = 0; i < num; i++) {
 			Rotador r1 = new Rotador(s);
 			r1.attach();

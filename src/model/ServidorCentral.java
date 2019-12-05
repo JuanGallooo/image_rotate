@@ -102,6 +102,9 @@ public class ServidorCentral {
 
 	
 	public void merge(ArrayList<int[][]> data, int n, int g){
+		if(n==1) {
+			resultante3 = data.get(0);
+		}
 		if(n == 2) {
 			int[][] resul1 = data.get(0);
 			int[][] resul2 = data.get(1);
